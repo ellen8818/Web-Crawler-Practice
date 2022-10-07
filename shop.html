@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/css/index.css"/>
+    
+    </head>
+    <body>
+    
+    
+        {% include 'banner.html' %}
+        <div id="wrapper">
+            <div id="content">
+                
+    
+    
+    <table border=1 width=100%>
+        {% for row in  bike %}
+            <tr>
+                 <td>{{ row.StationName }}</td>
+                 <td>{{ row.AvaliableBikeCount }}</td>
+                 <td>{{ row.AvaliableSpaceCount }}</td>
+            </tr>
+        
+        {% endfor %}
+    </table>
+    
+            
+            </div>
+        </div>
+        {% include 'footer.html' %}
+        
+    
+    
+    
+    </body>
+</html>

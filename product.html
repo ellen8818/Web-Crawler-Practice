@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/static/css/index.css"/>
+    </head>
+    
+    
+    <body>
+    
+    
+        {% include 'banner.html' %}
+        <div id="wrapper">
+            <div id="content">
+            
+            
+            
+        <div id='formarea'>
+            <form action="" method="get">
+            商品名稱:<input type="text" name="product" /><p></p>
+            價格:<input type="number" name="startp" />~<input type="namber" name="endp" /> <p></p>
+            <input type="submit" value="查詢" />
+            
+            </form>
+        </div>
+
+        <div class='info'>
+        {% for p in productlist %}
+            <div class='infoarea'>
+                <ul>                
+                    <li>商城:{{p.shop}}</li>
+                    <li>產品:{{p.name}}</li>
+                    <li>價格:{{p.price}}</li>
+                    <li><a href="{{p.link}}"><img src="{{p.photo_url}}"></a></li>                    
+                </ul>
+            </div>
+        {% endfor %}     
+        </div>        
+        
+        <div class='pagination'>
+            <span class='page_link'>
+                {% if productlist.has_previous %}
+                    <a href="?page={{productlist.previous_page_number}}&product={{product}}&startp={{startp}}&endp={{endp}}">上一頁</a>
+                {% endif %}
+                
+                <span class='current'>
+                    頁數:{{productlist.number}} of {{productlist.paginator.num_pages}}
+                </span>
+                
+                {% if productlist.has_next %}
+                    <a href="?page={{productlist.next_page_number}}&product={{product}}&startp={{startp}}&endp={{endp}}">下一頁</a>
+                {% endif %}    
+          
+            </span>
+        
+        </div>  
+        
+            </div>
+        </div>
+        {% include 'footer.html' %}        
+       
+         
+    </body>
+</html>

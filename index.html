@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+         <link rel="stylesheet" href="/static/css/index.css"/>
+    </head>
+    <body>
+    
+        {% include 'banner.html' %}
+        <div id="wrapper">
+            <div id="content">
+            
+            
+            
+                 <div class='info' style="margin-left:15%;padding-top:2%;"> /*另外加樣式，不會影響到主要的模板*/
+                {% for p in productlist %}
+                    <div class='infoarea'>
+                        <ul>                
+                            <li>商城:{{p.shop}}</li>
+                            <li>產品:{{p.name}}</li>
+                            <li>價格:{{p.price}}</li>
+                            <li><a href="{{p.link}}" target="_blank"><img src="{{p.photo_url}}"></a></li>
+                             /*target="_blank" 是為了要在點選超連結時，它會自動跳成另一個分頁) */                 
+                        </ul>
+                    </div>
+                {% endfor %}     
+                </div>        
+            
+          
+            
+            </div>
+        </div>
+        {% include 'footer.html' %}
+    
+    
+    
+    </body>
+    
+</html>
